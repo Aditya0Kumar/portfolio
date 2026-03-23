@@ -47,18 +47,19 @@ const educationData = [
 
 export const Education = () => {
     return (
-        <section id="education" className="py-20 px-6 max-w-7xl mx-auto relative overflow-hidden">
-            {/* Blueprint Grid Background */}
-            <div className="absolute inset-0 z-0 bg-grid-blueprint" />
-            <div className="flex items-center mb-12">
-                <h2 className="font-space text-3xl font-bold text-foreground">
-                    <span className="text-primary mr-2">04.</span>
-                    Education
-                </h2>
-                <div className="h-px bg-border flex-1 ml-6" />
-            </div>
+        <section id="education" className="py-28 px-8 max-w-[1240px] mx-auto border-t border-border bg-background">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-16"
+            >
+                <span className="text-primary uppercase tracking-[0.2em] text-[0.7rem] font-bold mb-4 block">08 · Foundation</span>
+                <h2 className="text-[clamp(2.8rem,5vw,4.5rem)] font-semibold tracking-tight leading-tight text-foreground mb-6">Education</h2>
+                <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed font-light">My formal academic journey and technical foundation.</p>
+            </motion.div>
 
-            <div className="space-y-8 max-w-4xl mx-auto">
+            <div className="space-y-16 max-w-4xl">
                 {educationData.map((item, idx) => (
                     <motion.div
                         key={idx}
@@ -66,37 +67,32 @@ export const Education = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        className="relative pl-8 md:pl-0"
+                        className="relative pl-12 border-l border-border group"
                     >
-                        <div className="md:grid md:grid-cols-4 md:gap-8 items-start border-l-2 md:border-l-0 border-border/50 md:border-transparent pb-8 last:pb-0">
-                            {/* Date / Type */}
-                            <div className="mb-2 md:mb-0 md:text-right md:border-r-2 md:border-border/50 md:pr-8 pt-1 group">
-                                <span className="text-secondary font-mono text-sm block font-bold group-hover:text-primary transition-colors">[{item.type}]</span>
-                                <span className="text-muted-foreground font-mono text-xs">{item.date}</span>
-                                <span className="text-muted-foreground font-mono text-xs block mt-1 opacity-70 italic">{item.location}</span>
-                            </div>
+                        {/* Dot */}
+                        <div className="absolute -left-[6px] top-2.5 w-3 h-3 rounded-full bg-border group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(224,82,82,0.4)] transition-all duration-500" />
 
-                            {/* Content */}
-                            <div className="md:col-span-3 relative">
-                                <span className="absolute -left-[45px] md:-left-[41px] top-1 flex items-center justify-center w-8 h-8 rounded-full dark:bg-[#0d1117] bg-white border dark:border-border/50 border-border text-primary shadow-sm z-10">
-                                    <item.icon className="w-4 h-4" />
-                                </span>
-
-                                <div className="dark:bg-[#0d1117]/60 bg-white/70 border dark:border-border/50 border-border p-6 rounded-xl backdrop-blur-md shadow-xl hover:shadow-primary/5 transition-all group border-l-4 border-l-primary/10 hover:border-l-primary/40">
-                                    <h3 className="text-xl font-bold font-space text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
-                                    <h4 className="text-primary/80 font-mono text-sm font-bold mb-4 mt-1">{`@ ${item.organization}`}</h4>
-
-                                    <ul className="space-y-3 text-muted-foreground font-inter text-sm list-none">
-                                        {item.details.map((detail, dIdx) => (
-                                            <li key={dIdx} className="flex items-start">
-                                                <span className="text-secondary mr-3 font-bold mt-0.5 opacity-60">{"//"}</span>
-                                                <span className="leading-relaxed font-medium">{detail}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
+                        <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-4">
+                            <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                                {item.title}
+                            </h3>
+                            <span className="text-muted-foreground/60 text-[0.65rem] uppercase tracking-widest font-bold font-mono">
+                                {item.date} · {item.location}
+                            </span>
                         </div>
+
+                        <div className="text-primary text-sm font-bold uppercase tracking-widest font-mono mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                            {item.organization}
+                        </div>
+
+                        <ul className="space-y-4">
+                            {item.details.map((detail, dIdx) => (
+                                <li key={dIdx} className="flex items-start text-[1.05rem] text-muted-foreground leading-relaxed font-light">
+                                    <span className="text-primary mr-4 opacity-40 font-bold">/</span>
+                                    <span>{detail}</span>
+                                </li>
+                            ))}
+                        </ul>
                     </motion.div>
                 ))}
             </div>

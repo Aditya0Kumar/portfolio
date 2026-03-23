@@ -48,7 +48,7 @@ export default function AchievementsPage() {
                             placeholder="Search achievements..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full sm:w-64 pl-10 pr-4 py-2 bg-white/50 dark:bg-[#0d1117]/50 border border-border/50 rounded-xl outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium text-sm"
+                            className="w-full sm:w-64 pl-10 pr-4 py-2 bg-accent/30 border border-border/50 rounded-xl outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium text-sm text-foreground placeholder:text-muted-foreground/40"
                         />
                     </div>
                 </div>

@@ -205,6 +205,30 @@ const rawCertificates = [
         link: "https://drive.google.com/open?id=1rNgGTzAvWqmpkL8-F-fQ9ez5wio2vul8"
     },
     {
+        title: "LeetCode: 400+ Problems Solved",
+        issuer: "LeetCode",
+        date: "Continuous",
+        description: "Consistency in solving complex algorithmic challenges. Specialized in Array, Dynamic Programming, and Graph theory.",
+        link: "https://leetcode.com/AdityaKumar", // Placeholder
+        featured: true
+    },
+    {
+        title: "CodeChef: 3-Star Coder",
+        issuer: "CodeChef",
+        date: "2024",
+        description: "Achieved 3-star rating by demonstrating consistent performance in monthly long and cook-off challenges.",
+        link: "https://www.codechef.com/users/aditya", // Placeholder
+        featured: true
+    },
+    {
+        title: "CodeForces: Pupil / Contestant",
+        issuer: "CodeForces",
+        date: "2024",
+        description: "Active participant in global rounds, focusing on mathematical logic and speed-coding.",
+        link: "https://codeforces.com/profile/aditya", // Placeholder
+        featured: true
+    },
+    {
         title: "TIME WARP Participation",
         issuer: "Pragyan, NIT Trichy",
         date: "2024",

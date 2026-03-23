@@ -8,8 +8,13 @@ import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Architecture } from "@/components/sections/Architecture";
 import { Education } from "@/components/sections/Education";
+import { Hackathons } from "@/components/sections/Hackathons";
+import { CompetitiveCoding } from "@/components/sections/CompetitiveCoding";
 import { Certifications } from "@/components/sections/Certifications";
+import { Highlights } from "@/components/sections/Highlights";
 import { Contact } from "@/components/sections/Contact";
+import { Marquee } from "@/components/ui/Marquee";
+import { StatsStrip } from "@/components/sections/StatsStrip";
 
 export default function Home() {
   const [activeArch, setActiveArch] = useState<string | null>(null);
@@ -30,8 +35,11 @@ export default function Home() {
       <About />
       <Skills />
       <Projects onDeepDive={(id) => setActiveArch(id)} />
-      <Education />
+      <Highlights />
       <Certifications />
+      <Hackathons />
+      <CompetitiveCoding />
+      <Education />
       <Contact />
 
       <AnimatePresence>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -9,6 +10,8 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-mono);
   --font-space: var(--font-space);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -24,143 +27,68 @@
 }
 
 :root {
-  /* Light Mode - Clean & Crisp */
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* Core Palette - Light Mode */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  
+  --primary: #e05252;
+  --secondary: #2fb344;
+  
+  --muted: #f8f9fa;
+  --muted-foreground: #495057;
+  
+  --accent: #f1f3f5;
+  --accent-foreground: #212529;
+  
+  --border: #dee2e6;
+  --input: #ced4da;
+  --ring: rgba(224, 82, 82, 0.4);
 
-  --primary: #0284c7;
-  --primary-foreground: #ffffff;
-
-  --secondary: #4f46e5;
-  --secondary-foreground: #ffffff;
-
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
-
-  --accent: #059669;
-  --accent-foreground: #ffffff;
-
-  --border: #cbd5e1;
-  --input: #cbd5e1;
-  --ring: #0284c7;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Outfit', sans-serif;
+  --font-display: 'Bebas Neue', cursive;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: #020617;
-  --card-foreground: #f8fafc;
-  --popover: #020617;
-  --popover-foreground: #f8fafc;
-  --primary: #00f5d4;
-  --primary-foreground: #020617;
-  --secondary: #9b5de5;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #fee440;
-  --accent-foreground: #020617;
-  --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #00f5d4;
-  --chart-1: #00f5d4;
-  --chart-2: #9b5de5;
-  --chart-3: #fee440;
-  --chart-4: #00bbf9;
-  --chart-5: #f15bb5;
+  /* Core Palette - Dark Mode */
+  --background: #060608;
+  --foreground: #f4f4f6;
+  
+  --primary: #e05252;
+  --secondary: #4ade80;
+  
+  --muted: #0e0e12;
+  --muted-foreground: #9898a8;
+  
+  --accent: #15151a;
+  --accent-foreground: #d4d4dc;
+  
+  --border: #1f1f23;
+  --input: #32323e;
+  --ring: rgba(224, 82, 82, 0.6);
 }
 
 @layer utilities {
-
-  /* Retro UI Utilities */
-  .bg-grid-blueprint {
-    background-image:
-      linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
+  .cursor-none {
+    cursor: none;
   }
 
-  .dark .bg-grid-blueprint {
-    background-image:
-      linear-gradient(to right, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
   }
 
-  .crt-flicker {
-    animation: flicker 0.15s infinite;
-    pointer-events: none;
+  .reveal.in {
+    opacity: 1;
+    transform: none;
   }
 
-  @keyframes flicker {
-    0% {
-      opacity: 0.97;
-    }
+  /* Hacker Terminal Blink */
+  @keyframes cblink {
 
-    5% {
-      opacity: 0.95;
-    }
-
-    10% {
-      opacity: 0.9;
-    }
-
-    15% {
-      opacity: 0.95;
-    }
-
-    20% {
-      opacity: 0.98;
-    }
-
-    25% {
-      opacity: 0.95;
-    }
-
-    30% {
-      opacity: 0.9;
-    }
-
-    35% {
-      opacity: 0.95;
-    }
-
-    40% {
-      opacity: 0.98;
-    }
-
-    45% {
-      opacity: 0.95;
-    }
-
-    50% {
-      opacity: 0.9;
-    }
-  }
-
-  .scanlines {
-    background: linear-gradient(to bottom,
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-  }
-
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    pointer-events: none;
-  }
-
-  .font-vt323 {
-    font-family: 'VT323', monospace;
-  }
-
-  @keyframes terminal-blink {
-
-    from,
-    to {
+    0%,
+    100% {
       opacity: 1;
     }
 
@@ -169,58 +97,71 @@
     }
   }
 
-  .animate-terminal-cursor {
-    animation: terminal-blink 1s steps(2) infinite;
+  .cursor-blink {
+    animation: cblink 1s step-end infinite;
   }
 
-  .terminal-noise {
-    background: repeating-linear-gradient(to bottom,
-        rgba(255, 255, 255, 0.015),
-        rgba(255, 255, 255, 0.015) 1px,
-        transparent 1px,
-        transparent 3px);
+  /* Marquee Animation */
+  @keyframes mq {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
-  .mac-red {
-    @apply bg-[#ff5f56] border-[#e0443e];
+  .animate-marquee {
+    animation: mq 30s linear infinite;
   }
 
-  .mac-yellow {
-    @apply bg-[#ffbd2e] border-[#dea123];
-  }
-
-  .mac-green {
-    @apply bg-[#27c93f] border-[#1aab29];
-  }
-
-  .binary-scroll-track {
-    position: fixed;
-    right: 10px;
+  /* Stat Cell Gradient Header */
+  .stat-header-gradient::before {
+    content: '';
+    position: absolute;
     top: 0;
-    bottom: 0;
-    width: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-size: 8px;
-    font-weight: bold;
-    opacity: 0.2;
-    color: var(--primary);
-    pointer-events: none;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+  }
+
+  .stat-header-gradient:hover::before {
+    transform: scaleX(1);
   }
 }
 
 @layer base {
   * {
-    border-color: var(--border);
-    outline-color: var(--ring);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--background);
+    background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-inter), sans-serif;
-    @apply transition-colors duration-300;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    transition: color 0.3s, background-color 0.3s;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
   }
 }
