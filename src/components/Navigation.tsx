@@ -7,13 +7,13 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
-    { name: "about", href: "/#about" },
-    { name: "skills", href: "/#skills" },
-    { name: "projects", href: "/#projects" },
-    { name: "certificates", href: "/certificates" },
-    { name: "achievements", href: "/achievements" },
-    { name: "resume", href: "/AdityaKumar.pdf" },
-    { name: "contact", href: "/#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Certificates", href: "/certificates" },
+    { name: "Achievements", href: "/achievements" },
+    { name: "Resume", href: "/AdityaKumar.pdf" },
+    { name: "Contact", href: "/#contact" },
 ];
 
 export const Navigation = () => {

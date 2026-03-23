@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Github, Linkedin, Mail, Phone, ExternalLink, Download } from "lucide-react";
 
 const SESSIONS = [
   { cls: 'info', t: 'ADITYA KUMAR' },
@@ -47,7 +48,7 @@ export const Hero = () => {
   }, [currentLineIdx, currentCharIdx]);
 
   return (
-    <section className="min-h-screen flex items-center bg-background text-foreground px-6 pt-[72px]">
+    <section className="min-h-screen flex items-center bg-background text-foreground px-6">
       <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
 
         {/* LEFT: Identity & Value Prop */}
@@ -73,19 +74,55 @@ export const Hero = () => {
             I build <span className="text-foreground font-medium">scalable backend systems</span>, high-performance applications, and <span className="text-foreground font-medium">developer-first infrastructure</span> with a first-principles mindset.
           </p>
 
-          <div className="flex flex-wrap gap-4 mt-6">
-            <a
-              href="#projects"
-              className="px-8 py-4 bg-primary hover:bg-primary/90 transition-all duration-300 rounded-xl font-semibold tracking-wide shadow-[0_20px_40px_rgba(224,82,82,0.2)] text-white"
-            >
-              View my Works
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 border border-border hover:bg-accent transition-all duration-300 rounded-xl font-semibold tracking-wide"
-            >
-              Contact Me
-            </a>
+          <div className="flex flex-col gap-8 mt-6">
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="px-6 py-2.5 bg-primary hover:bg-primary/90 transition-all duration-300 rounded-xl font-semibold tracking-wide shadow-[0_20px_40px_rgba(224,82,82,0.2)] text-white text-sm"
+              >
+                View my Works
+              </a>
+              <a
+                href="#contact"
+                className="px-6 py-2.5 border border-border hover:bg-accent transition-all duration-300 rounded-xl font-semibold tracking-wide text-sm"
+              >
+                Contact Me
+              </a>
+              <a
+                href="/AdityaKumar.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 border border-primary/20 hover:border-primary/40 bg-primary/5 hover:bg-primary/10 transition-all duration-300 rounded-xl font-semibold tracking-wide flex items-center gap-2 text-primary text-sm"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
+            </div>
+
+            {/* Social & Contact Links */}
+            <div className="flex flex-wrap gap-5 items-center border-t border-border/20 pt-6">
+              {[
+                { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aditya-kumar-8b141516a/', color: 'hover:text-[#0077B5] hover:bg-[#0077B5]/10' },
+                { icon: Github, label: 'GitHub', href: 'https://github.com/Aditya0Kumar', color: 'hover:text-foreground hover:bg-foreground/10' },
+                { icon: Mail, label: 'Email', href: 'mailto:adityakumar80811@gmail.com', color: 'hover:text-primary hover:bg-primary/10' },
+                { icon: Phone, label: 'Call', href: 'tel:+918081134103', color: 'hover:text-green-500 hover:bg-green-500/10' }
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={link.label}
+                  className={`p-2.5 rounded-lg text-muted-foreground/50 transition-all duration-300 group flex items-center justify-center border border-transparent hover:border-current/10 ${link.color}`}
+                >
+                  <link.icon size={19} className="group-hover:scale-110 transition-transform" />
+                </a>
+              ))}
+              <div className="h-4 w-px bg-border/40 mx-2 hidden sm:block" />
+              <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-muted-foreground/40 font-bold select-none whitespace-nowrap">
+                Connect directly
+              </span>
+            </div>
           </div>
         </motion.div>
 
@@ -123,7 +160,7 @@ export const Hero = () => {
                   </div>
                 ))}
                 {currentLineIdx < SESSIONS.length && (
-                  <div className="flex items-start flex-wrap">
+                  <div className="inline">
                     <span className={
                       SESSIONS[currentLineIdx]?.cls === 'prompt' ? 'text-primary font-bold' :
                         SESSIONS[currentLineIdx]?.cls === 'dim' ? 'text-muted-foreground/30' :
@@ -131,7 +168,7 @@ export const Hero = () => {
                     }>
                       {SESSIONS[currentLineIdx]?.t.slice(0, currentCharIdx)}
                     </span>
-                    <span className="w-1.5 h-3.5 bg-primary ml-1 mt-1 animate-pulse inline-block" />
+                    <span className="w-1.5 h-3.5 bg-primary ml-1 translate-y-0.5 animate-pulse inline-block" />
                   </div>
                 )}
               </div>
