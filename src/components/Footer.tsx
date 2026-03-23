@@ -22,7 +22,7 @@ export const Footer = () => {
 
                 <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-border/50 gap-6">
                     <div className="text-[0.85rem] text-muted-foreground/60 font-mono">
-                        © 2024 · Aditya Kumar
+                        © {new Date().getFullYear()} · Aditya Kumar
                     </div>
                     <div className="flex gap-8">
                         {[
