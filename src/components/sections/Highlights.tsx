@@ -14,7 +14,11 @@ const HIGHLIGHTS = [
     },
     {
         title: "Algorithmic Proficiency",
-        desc: "Solved 400+ complex problems across LeetCode and CodeChef, maintaining a consistent 3-star rating and technical rigor."
+        desc: "Solved 500+ complex problems across various platforms."
+    },
+    {
+        title: "Algorithmic Peak",
+        desc: "Achieved peak Leetcode Contest Rating of 1702."
     },
     {
         title: "Full-Stack System Engineering",
@@ -22,14 +26,14 @@ const HIGHLIGHTS = [
     },
     {
         title: "Academic & Core CS Excellence",
-        desc: "Maintaining a 8.61 CGPA at LPU, with a strong foundation in Operating Systems, DBMS, and Computer Networks."
+        desc: "Maintaining a 8.61 CGPA, with a strong foundation in Operating Systems, System Design, DBMS, and Computer Networks."
     }
 ];
 
 export const Highlights = () => {
     return (
         <section id="highlights" className="py-28 px-8 max-w-[1240px] mx-auto border-t border-border bg-background">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

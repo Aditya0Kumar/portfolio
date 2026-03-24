@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     id: "trackr",
     num: "002",
-    name: "Trackr.js",
+    name: "Trackr.jsx",
     type: "Enterprise ERP",
     desc: "Architected a scalable multi-tenant ERP system using a microservices-inspired approach. Leveraged Redis as a high-speed caching layer and message broker for BullMQ worker queues, handling intensive background tasks like payroll processing and automated reporting. Implemented a robust RBAC system securing sensitive enterprise data across distributed nodes.",
     stack: ["React", "Node.js", "Redis", "MongoDB", "BullMQ"],
@@ -28,7 +28,7 @@ const PROJECTS = [
   {
     id: "finance",
     num: "003",
-    name: "Finance.tsx",
+    name: "Finance_Analytics_and_Dashboard.tsx",
     type: "Predictive Analytics",
     desc: "Developing a predictive fintech dashboard that integrates real-time market data with proprietary forecasting models. Utilized MongoDB's aggregation framework for complex time-series analysis and built a high-performance API layer to serve sub-second data visualizations. Employs advanced outlier detection to flag transactional anomalies and trends.",
     stack: ["TypeScript", "Redux", "Node.js", "Recharts", "MUI"],
@@ -39,9 +39,9 @@ const PROJECTS = [
     id: "swifthealth",
     num: "004",
     name: "SwiftHealth.php",
-    type: "Healthcare App",
-    desc: "A high-availability healthcare orchestration platform designed for critical emergency response. Built a real-time alerting system using WebSockets and a prioritized queuing mechanism to ensure sub-second notification delivery during medical crises. Scaled to handle concurrent appointment scheduling and patient record synchronization effectively.",
-    stack: ["PHP", "MySQL", "JavaScript", "Tailwind CSS"],
+    type: "Healthcare Platform",
+    desc: "Developed a high-integrity medicine booking platform using PHP and MySQL. Engineered transactional flows in MySQL using ACID principles to ensure data consistency during concurrent scheduling requests. Implemented robust session-based authentication, role-scoped authorization, and secure prepared statements with parameter binding to eliminate injection risks.",
+    stack: ["PHP", "MySQL", "JavaScript", "TailwindCSS", "Sessions/Auth"],
     github: "https://github.com/Aditya0Kumar/SwiftHealth",
     image: "/swifthealth.png"
   }

@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Phone, ExternalLink, Download } from "lucide-react";
+import { useRef } from "react";
+import { useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const SESSIONS = [
   { cls: 'info', t: 'ADITYA KUMAR' },
@@ -18,6 +20,35 @@ export const Hero = () => {
   const [terminalLines, setTerminalLines] = useState<{ cls: string, t: string, id: number }[]>([]);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [currentCharIdx, setCurrentCharIdx] = useState(0);
+
+  // Tilt Logic
+  const containerRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   useEffect(() => {
     if (currentLineIdx >= SESSIONS.length) return;
@@ -55,27 +86,46 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex flex-col gap-6"
+          className="flex flex-col gap-8 items-center text-center w-full"
         >
-          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-primary uppercase tracking-widest text-[0.7rem] font-bold">Available for high-impact roles</span>
+          <motion.div
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
+            className="relative w-52 h-52 md:w-60 md:h-60 rounded-full border-4 border-primary/10 shadow-[0_0_50px_rgba(224,82,82,0.15)] group-hover:border-primary/30 transition-shadow duration-500 cursor-pointer"
+          >
+            <div
+              style={{
+                transform: "translateZ(50px)",
+                transformStyle: "preserve-3d",
+              }}
+              className="w-full h-full rounded-full overflow-hidden"
+            >
+              <img
+                src="/AdityaKumar.jpg"
+                alt="Aditya Kumar"
+                className="w-full h-full object-cover brightness-[1.1] contrast-[1.05]"
+              />
+            </div>
+          </motion.div>
+
+          <div className="flex flex-col gap-2">
+            <h1 className="text-[clamp(3rem,7vw,4.8rem)] font-semibold tracking-tight leading-[1.1] text-foreground">
+              Aditya Kumar
+            </h1>
+
+            <p className="text-primary text-xl font-medium tracking-widest uppercase">
+              Software Engineer
+            </p>
           </div>
 
-          <h1 className="text-[clamp(3rem,7vw,4.8rem)] font-semibold tracking-tight leading-[1.1] text-foreground">
-            Aditya Kumar
-          </h1>
-
-          <p className="text-primary text-lg font-medium tracking-wide uppercase">
-            Software Engineer
-          </p>
-
-          <p className="text-muted-foreground text-xl max-w-[540px] leading-relaxed font-light">
-            I build <span className="text-foreground font-medium">scalable backend systems</span>, high-performance applications, and <span className="text-foreground font-medium">developer-first infrastructure</span> with a first-principles mindset.
-          </p>
-
-          <div className="flex flex-col gap-8 mt-6">
-            <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col gap-8 mt-2">
+            <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="#projects"
                 className="px-6 py-2.5 bg-primary hover:bg-primary/90 transition-all duration-300 rounded-xl font-semibold tracking-wide shadow-[0_20px_40px_rgba(224,82,82,0.2)] text-white text-sm"
@@ -100,7 +150,7 @@ export const Hero = () => {
             </div>
 
             {/* Social & Contact Links */}
-            <div className="flex flex-wrap gap-5 items-center border-t border-border/20 pt-6">
+            <div className="flex flex-wrap gap-5 items-center justify-center border-t border-border/20 pt-6">
               {[
                 { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/aditya-kumar-8b141516a/', color: 'hover:text-[#0077B5] hover:bg-[#0077B5]/10' },
                 { icon: Github, label: 'GitHub', href: 'https://github.com/Aditya0Kumar', color: 'hover:text-foreground hover:bg-foreground/10' },
