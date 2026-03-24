@@ -17,6 +17,15 @@ const getDriveThumbnail = (link: string) => {
 
 const rawCertificates = [
     {
+        title: "OCI AI Foundations Associate",
+        issuer: "Oracle",
+        date: "2024",
+        description: "Certified proficiency in AI concepts, machine learning workflows, and Oracle Cloud Infrastructure AI services.",
+        image: "/OCIFoundation.png",
+        link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=1B756BADD5ADF3ACB1B88937E175D43053734D51DB0BE7E86E83108B56DA74DB",
+        featured: true
+    },
+    {
         title: "Cloud Computing",
         issuer: "NPTEL",
         date: "May 2025",
@@ -252,8 +261,8 @@ export const certificates: Certificate[] = rawCertificates.map((cert, index) => 
         description: cert.description || "Professional certification validating technical competencies.",
         issuer: cert.issuer,
         date: cert.date,
-        image: getDriveThumbnail(cert.link),
-        verificationLink: cert.link,
+        image: (cert as any).image || getDriveThumbnail(cert.link),
+        verificationLink: cert.link || "",
         category,
         featured: cert.featured || false
     };

@@ -21,7 +21,16 @@ export const CertificateCard = ({ certificate }: CertificateCardProps) => {
         >
             {/* Image Section */}
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-background group/frame border-b border-border">
-                {certificate.verificationLink && certificate.verificationLink.includes('drive.google.com') ? (
+                {certificate.image && !certificate.image.includes('drive.google.com') ? (
+                    <div className="w-full h-full relative p-6 bg-accent/5 backdrop-blur-sm group-hover/frame:bg-accent/10 transition-colors">
+                        <Image
+                            src={certificate.image}
+                            alt={certificate.title}
+                            fill
+                            className="object-contain p-4 group-hover/frame:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                ) : certificate.verificationLink && certificate.verificationLink.includes('drive.google.com') ? (
                     <div className="w-full h-full relative">
                         <iframe
                             src={certificate.verificationLink.replace('/open?id=', '/file/d/') + '/preview'}

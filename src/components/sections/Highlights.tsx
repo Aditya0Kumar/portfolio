@@ -25,8 +25,8 @@ const HIGHLIGHTS = [
         desc: "Proficient in the MERN stack with deep knowledge of Redis caching, message queues (BullMQ), and RBAC security models."
     },
     {
-        title: "Academic & Core CS Excellence",
-        desc: "Maintaining a 8.61 CGPA, with a strong foundation in Operating Systems, System Design, DBMS, and Computer Networks."
+        title: "MongoDB Certified Proficiency",
+        desc: "Awarded 10+ MongoDB Skill Badges, demonstrating verified expertise in complex NoSQL schema design, advanced aggregation, and distributed indexing."
     }
 ];
 

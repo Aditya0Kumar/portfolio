@@ -10,11 +10,11 @@ export const Footer = () => {
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                             <div>
                                 <p className="text-muted-foreground/60 font-mono text-[0.8rem] uppercase tracking-[0.2em] mb-4">
-                                    Software Engineer · Full Stack · Distributed Systems · AI/ML
+                                    Software Engineer · Full Stack Developer · Distributed Systems · AI/ML
                                 </p>
-                                <p className="text-muted-foreground/40 font-mono text-[0.7rem] leading-relaxed max-w-sm">
+                                {/* <p className="text-muted-foreground/40 font-mono text-[0.7rem] leading-relaxed max-w-sm">
                                     Designed with a focus on typography and high-performance engineering aesthetics. Built with Next.js & Framer Motion.
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </div>
